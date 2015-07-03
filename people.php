@@ -51,22 +51,43 @@ function my_admin() {
 
 function display_person_meta_box( $person ) {
   // Retrieve current name of the Director and Movie Rating based on review ID
-  $tagline = esc_html( get_post_meta( $person->ID, 'tagline', true ) );
+  $title = esc_html( get_post_meta( $person->ID, 'title', true ) );
 
-  $twitter = esc_html( get_post_meta( $person->ID, 'twitter', true ) );
+  $website = esc_html( get_post_meta( $person->ID, 'website', true ) );
+
+  $affiliation = esc_html( get_post_meta( $person->ID, 'affiliation', true ) );
+
+  $expertise = esc_html( get_post_meta( $person->ID, 'expertise', true ) );
 
   $bio = esc_html( get_post_meta( $person->ID, 'bio', true ) );
+
+  $hypothesis = esc_html ( get_post_meta( $person->ID, 'hypothesis', true ) );
 
   ?>
   <table>
     <tr>
-      <td style="width: 100%">Tagline</td>
-      <td><input type="text" size="80" name="person_tagline" value="<?php echo $tagline; ?>" /></td>
+      <td style="width: 100%">Website</td>
+      <td><input type="text" size="80" name="person_website" value="<?php echo $website; ?>" /></td>
     </tr>
 
     <tr>
-      <td style="width: 100%">Twitter</td>
-      <td><input type="text" size="80" name="person_twitter" value="<?php echo $twitter; ?>" /></td>
+      <td style="width: 100%">Hypothesis Handle</td>
+      <td><input type="text" size="80" name="person_hypothesis" value="<?php echo $hypothesis; ?>" /></td>
+    </tr>
+
+    <tr>
+      <td style="width: 100%">Title (eg PhD Candidate...)</td>
+      <td><input type="text" size="80" name="person_title" value="<?php echo $title; ?>" /></td>
+    </tr>
+
+    <tr>
+      <td style="width: 100%">Affiliation</td>
+      <td><input type="text" size="80" name="person_affiliation" value="<?php echo $affiliation; ?>" /></td>
+    </tr>
+
+    <tr>
+      <td style="width: 100%">Expertise</td>
+      <td><input type="text" size="80" name="person_expertise" value="<?php echo $expertise; ?>" /></td>
     </tr>
 
     <tr>
@@ -85,12 +106,24 @@ function add_person_fields( $person_id, $person ) {
   if ( $person->post_type == 'people' ) {
     // Store data in post meta table if present in post data
 
-    if ( isset( $_POST['person_tagline'] ) && $_POST['person_tagline'] != '' ) {
-      update_post_meta( $person_id, 'tagline', $_POST['person_tagline'] );
+    if ( isset( $_POST['person_title'] ) && $_POST['person_title'] != '' ) {
+      update_post_meta( $person_id, 'title', $_POST['person_title'] );
     }
 
-    if ( isset( $_POST['person_twitter'] ) && $_POST['person_twitter'] != '' ) {
-      update_post_meta( $person_id, 'twitter', $_POST['person_twitter'] );
+    if ( isset( $_POST['person_website'] ) && $_POST['person_website'] != '' ) {
+      update_post_meta( $person_id, 'website', $_POST['person_website'] );
+    }
+
+    if ( isset( $_POST['person_hypothesis'] ) && $_POST['person_hypothesis'] != '' ) {
+      update_post_meta( $person_id, 'hypothesis', $_POST['person_hypothesis'] );
+    }
+
+    if ( isset( $_POST['person_expertise'] ) && $_POST['person_expertise'] != '' ) {
+      update_post_meta( $person_id, 'expertise', $_POST['person_expertise'] );
+    }
+
+    if ( isset( $_POST['person_affiliation'] ) && $_POST['person_affiliation'] != '' ) {
+      update_post_meta( $person_id, 'affiliation', $_POST['person_affiliation'] );
     }
 
     if ( isset( $_POST['person_bio'] ) && $_POST['person_bio'] != '' ) {
@@ -156,7 +189,7 @@ function peopleLoop($atts, $content = null) {
             <div class="caption" style="display: block;">
               <a href="#'.get_the_ID().'">'.get_the_title().'</a>
             </div>
-            <div class="caption" style="display: block;">'.get_post_meta( get_the_ID(), 'tagline', true ).'</div>
+            <div class="caption" style="display: block;">'.get_post_meta( get_the_ID(), 'title', true ).'</div>
             <div class="hovertext" style="display: none;">Click for bio<span class="redtext">.</span></div>
           </div>';
       endforeach;
@@ -177,9 +210,9 @@ function peopleLoop($atts, $content = null) {
                 </div>
                 <div class="modal-body">
                   <div class="hypo-responsive-modal-image">'.get_the_post_thumbnail().'</div>
-                  <h5>'.get_post_meta( get_the_ID(), 'tagline', true ).'</h5>
+                  <h5>'.get_post_meta( get_the_ID(), 'title', true ).'</h5>
                   <h5>
-                    <a href="https://twitter.com/#!/'.substr(get_post_meta( get_the_ID(), 'twitter', true ), 1).'">'.get_post_meta( get_the_ID(), 'twitter', true ).'</a>
+                    <a href="https://website.com/#!/'.substr(get_post_meta( get_the_ID(), 'website', true ), 1).'">'.get_post_meta( get_the_ID(), 'website', true ).'</a>
                   </h5>
                   <p>'.get_post_meta( get_the_ID(), 'bio', true ).'</p>
                 </div>
