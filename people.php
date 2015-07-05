@@ -59,8 +59,6 @@ function display_person_meta_box( $person ) {
 
   $expertise = esc_html( get_post_meta( $person->ID, 'expertise', true ) );
 
-  $bio = esc_html( get_post_meta( $person->ID, 'bio', true ) );
-
   $hypothesis = esc_html ( get_post_meta( $person->ID, 'hypothesis', true ) );
 
   ?>
@@ -88,11 +86,6 @@ function display_person_meta_box( $person ) {
     <tr>
       <td style="width: 100%">Expertise</td>
       <td><input type="text" size="80" name="person_expertise" value="<?php echo $expertise; ?>" /></td>
-    </tr>
-
-    <tr>
-      <td style="width: 100%">Bio</td>
-      <td><textarea rows="20" cols="75" name="person_bio"><?php echo $bio; ?></textarea></td>
     </tr>
 
   </table>
@@ -124,10 +117,6 @@ function add_person_fields( $person_id, $person ) {
 
     if ( isset( $_POST['person_affiliation'] ) && $_POST['person_affiliation'] != '' ) {
       update_post_meta( $person_id, 'affiliation', $_POST['person_affiliation'] );
-    }
-
-    if ( isset( $_POST['person_bio'] ) && $_POST['person_bio'] != '' ) {
-      update_post_meta( $person_id, 'bio', $_POST['person_bio'] );
     }
   }
 }
@@ -209,12 +198,12 @@ function peopleLoop($atts, $content = null) {
                   <h3 class="modal-title" id="myModalLabel"><a href="'.get_post_meta( get_the_ID(), 'website', true ).'">'.get_the_title().'</a></h3>
                 </div>
                 <div class="modal-body">
-                  <div class="hypo-responsive-modal-image">'.get_the_post_thumbnail().'</div>
+                  <div class="responsive-modal-image">'.get_the_post_thumbnail().'</div>
                   <h5>'.get_post_meta( get_the_ID(), 'title', true ).'</h5>
                   <h5>
                     <a href="https://website.com/#!/'.substr(get_post_meta( get_the_ID(), 'website', true ), 1).'">'.get_post_meta( get_the_ID(), 'website', true ).'</a>
                   </h5>
-                  <p>'.get_post_meta( get_the_ID(), 'bio', true ).'</p>
+                  <p>'.get_post_meta( get_the_ID(), 'hypothesis', true ).'</p>
                 </div>
               </div>
             </div>
