@@ -50,7 +50,7 @@ function my_admin() {
 }
 
 function display_person_meta_box( $person ) {
-  // Retrieve current name of the Director and Movie Rating based on review ID
+  // Retrieve current name
   $title = esc_html( get_post_meta( $person->ID, 'title', true ) );
 
   $website = esc_html( get_post_meta( $person->ID, 'website', true ) );
@@ -163,7 +163,7 @@ function peopleLoop($atts, $content = null) {
         'offset' => $i,
         'category' => $theCatId,
         'post_type' => $type,
-        'orderby' => 'menu_order'
+        'orderby' => 'last_name'
       );
 
       //Get the posts
@@ -179,7 +179,7 @@ function peopleLoop($atts, $content = null) {
               <a href="#'.get_the_ID().'">'.get_the_title().'</a>
             </div>
             <div class="caption" style="display: block;">'.get_post_meta( get_the_ID(), 'title', true ).'</div>
-            <div class="hovertext" style="display: none;">Click for bio<span class="redtext">.</span></div>
+            <div class="hovertext" style="display: none;">Click for more info<span class="redtext">.</span></div>
           </div>';
       endforeach;
 
@@ -195,15 +195,15 @@ function peopleLoop($atts, $content = null) {
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h3 class="modal-title" id="myModalLabel"><a href="'.get_post_meta( get_the_ID(), 'website', true ).'">'.get_the_title().'</a></h3>
+                  <h3 class="modal-title" id="myModalLabel"><a target="_blank" href="'.get_post_meta( get_the_ID(), 'website', true ).'">'.get_the_title().'</a></h3>
                 </div>
                 <div class="modal-body">
                   <div class="responsive-modal-image">'.get_the_post_thumbnail().'</div>
-                  <h5>'.get_post_meta( get_the_ID(), 'title', true ).'</h5>
+                  <h5>'.get_post_meta( get_the_ID(), 'title', true ).' <br> '.get_post_meta( get_the_ID(), 'affiliation', true ).'</h5>
                   <h5>
-                    <a href="https://website.com/#!/'.substr(get_post_meta( get_the_ID(), 'website', true ), 1).'">'.get_post_meta( get_the_ID(), 'website', true ).'</a>
+                    '.get_post_meta( get_the_ID(), 'expertise', true ).' <br>
+                    <small>hypothesis:</small> '.get_post_meta( get_the_ID(), 'hypothesis', true ).' 
                   </h5>
-                  <p>'.get_post_meta( get_the_ID(), 'hypothesis', true ).'</p>
                 </div>
               </div>
             </div>
