@@ -125,7 +125,7 @@ function peopleLoop($atts, $content = null) {
     extract(shortcode_atts(array(
       "category" => '',
       "type" => 'people',
-      'per_row' => '5',
+      'per_row' => '1',
       'width' => ''
     ), $atts));
 
@@ -170,17 +170,19 @@ function peopleLoop($atts, $content = null) {
       $myposts = get_posts($argsG2);
 
 
-      $output .= '<div class="row">';
+      $output .= '<div class="row expert">';
 
       foreach($myposts as $post) : setup_postdata($post);
-        $output .='<div class="picunit tipper '.$width.'" data-toggle="modal" data-target="#'.get_the_ID().'">
-            <a href="#'.get_the_ID().'">'.get_the_post_thumbnail().'</a>
-            <div class="caption" style="display: block;">
-              <a href="#'.get_the_ID().'">'.get_the_title().'</a>
-            </div>
-            <div class="caption" style="display: block;">'.get_post_meta( get_the_ID(), 'title', true ).'</div>
-            <div class="hovertext" style="display: none;">Click for more info<span class="redtext">.</span></div>
-          </div>';
+        $output .='
+                     <div class="med-left">
+                        '.get_the_post_thumbnail().'
+                     </div>
+                     <div class="med-body">
+                        <h3 class="noborder"> <a target="_blank" href="'.get_post_meta( get_the_ID(), 'website', true ).'">'.get_the_title().'</a></h3>
+                        <p>'.get_post_meta( get_the_ID(), 'title', true ).', '.$primaryinstitution.'</p>
+                        <p><small>Expertise:</small> '.get_post_meta( get_the_ID(), 'expertise', true ).'</p>
+                        <p><small>Hypothesis:</small> <a target="_blank" href="https://hypothes.is/stream?q=user:'.get_post_meta( get_the_ID(), 'hypothesis', true ).'" class="">'.get_post_meta( get_the_ID(), 'hypothesis', true ).'</a></p>
+                     </div>';
       endforeach;
 
       //Second row
