@@ -179,9 +179,9 @@ function peopleLoop($atts, $content = null) {
                      </div>
                      <div class="med-body">
                         <h3 class="noborder"> <a target="_blank" href="'.get_post_meta( get_the_ID(), 'website', true ).'">'.get_the_title().'</a></h3>
-                        <p>'.get_post_meta( get_the_ID(), 'title', true ).', '.$primaryinstitution.'</p>
-                        <p><small>Expertise:</small> '.get_post_meta( get_the_ID(), 'expertise', true ).'</p>
-                        <p><small>Hypothesis:</small> <a target="_blank" href="https://hypothes.is/stream?q=user:'.get_post_meta( get_the_ID(), 'hypothesis', true ).'" class="">'.get_post_meta( get_the_ID(), 'hypothesis', true ).'</a></p>
+                        <p>'.get_post_meta( get_the_ID(), 'title', true ).', '.get_post_meta( get_the_ID(), 'affiliation', true ).'</p>
+                        <p>'.get_post_meta( get_the_ID(), 'expertise', true ).'</p>
+                        <p> <a target="_blank" href="https://hypothes.is/stream?q=user:'.get_post_meta( get_the_ID(), 'hypothesis', true ).'" class="">'.get_post_meta( get_the_ID(), 'hypothesis', true ).'</a></p>
                      </div>';
       endforeach;
 
