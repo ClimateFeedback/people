@@ -61,6 +61,8 @@ function display_person_meta_box( $person ) {
 
   $hypothesis = esc_html ( get_post_meta( $person->ID, 'hypothesis', true ) );
 
+  $last_name = esc_html ( get_post_meta( $person->ID, 'last_name', true ) );
+
   ?>
   <table>
     <tr>
@@ -86,6 +88,11 @@ function display_person_meta_box( $person ) {
     <tr>
       <td style="width: 100%">Expertise</td>
       <td><input type="text" size="80" name="person_expertise" value="<?php echo $expertise; ?>" /></td>
+    </tr>
+
+    <tr>
+      <td style="width: 100%">Last Name</td>
+      <td><input type="text" size="80" name="person_last_name" value="<?php echo $last_name; ?>" /></td>
     </tr>
 
   </table>
@@ -117,6 +124,10 @@ function add_person_fields( $person_id, $person ) {
 
     if ( isset( $_POST['person_affiliation'] ) && $_POST['person_affiliation'] != '' ) {
       update_post_meta( $person_id, 'affiliation', $_POST['person_affiliation'] );
+    }
+
+    if ( isset( $_POST['person_last_name'] ) && $_POST['person_last_name'] != '' ) {
+      update_post_meta( $person_id, 'last_name', $_POST['person_last_name'] );
     }
   }
 }
