@@ -33,8 +33,8 @@
       if ( !empty($all_meta_for_user['expertise'][0]) ) {
         $expertise = $all_meta_for_user['expertise'][0];
       }
-      if ( !empty($userdata['user_url'][0]) ) {
-        $website = $userdata['user_url'][0];
+      if ( !empty($userdata['user_url']) ) {
+        $website = $userdata['user_url'];
       }    
       if ( !empty($all_meta_for_user['orchid'][0]) ) {
         $orchid = $all_meta_for_user['orchid'][0];
