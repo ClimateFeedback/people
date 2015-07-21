@@ -2,8 +2,8 @@
 /*
 Plugin Name: People
 Description: Declares a plugin that will create a custom post type displaying people.
-Version: 1.0
-Author: Jehan Tremback
+Version: 0.2
+Author: Climate Feedback
 License: GPLv2
 */
 
