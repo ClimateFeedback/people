@@ -45,14 +45,8 @@
       if ( !empty($all_meta_for_user['title'][0]) ) {
         $title = $all_meta_for_user['title'][0];
       }
-      if ( !empty($all_meta_for_user['laboratory'][0]) ) {
-        $laboratory = $all_meta_for_user['laboratory'][0];
-      }
-      if ( !empty($all_meta_for_user['primaryinstitution'][0]) ) {
-        $primaryinstitution = $all_meta_for_user['primaryinstitution'][0];
-      }
-      if ( !empty($all_meta_for_user['secondaryinstitution'][0]) ) {
-        $secondaryinstitution = $all_meta_for_user['secondaryinstitution'][0];
+      if ( !empty($all_meta_for_user['affiliation'][0]) ) {
+        $affiliation = $all_meta_for_user['affiliation'][0];
       }
       if ( !empty($all_meta_for_user['publicationone'][0]) ) {
         $publicationone = $all_meta_for_user['publicationone'][0];
@@ -71,7 +65,7 @@
           </div>
           <div class="med-body">
             <h3 class="noborder"> <a target="_blank" href="'.$website.'">'.$first_name.' '.$last_name.'</a></h3>
-            <p>'.$title.', '.$primaryinstitution.'</p>
+            <p>'.$title.', '.$affiliation.'</p>
             <p><small>Expertise:</small> '.$expertise.'</p>
             <p><small>Hypothesis:</small> <a target="_blank" href="https://hypothes.is/stream?q=user:'.$hypothesis.'" class="">'.$hypothesis.'</a></p>
           </div>
