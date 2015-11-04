@@ -90,7 +90,7 @@ function display_person_meta_box( $person ) {
     </tr>
 
   </table>
-  <?php } 
+  <?php }
 
 add_action( 'save_post', 'add_person_fields', 10, 2 );
 
@@ -168,12 +168,14 @@ function peopleLoop($atts, $content = null) {
         'offset' => $i,
         'category' => $theCatId,
         'post_type' => $type,
-        'orderby' => 'last_name'
+        'meta_key' => 'last_name',
+        'orderby' => 'meta_value',
+        'order' => 'ASC'
       );
 
       //Get the posts
       $myposts = get_posts($argsG2);
-
+      remove_all_filters('posts_orderby');
 
       $output .= '<div class="row expert">';
 
@@ -209,7 +211,7 @@ function peopleLoop($atts, $content = null) {
                   <h5>'.get_post_meta( get_the_ID(), 'title', true ).' <br> '.get_post_meta( get_the_ID(), 'affiliation', true ).'</h5>
                   <h5>
                     '.get_post_meta( get_the_ID(), 'expertise', true ).' <br>
-                    <small>hypothesis:</small> '.get_post_meta( get_the_ID(), 'hypothesis', true ).' 
+                    <small>hypothesis:</small> '.get_post_meta( get_the_ID(), 'hypothesis', true ).'
                   </h5>
                 </div>
               </div>
