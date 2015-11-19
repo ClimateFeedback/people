@@ -78,5 +78,4 @@
 
   add_shortcode('expert-loop', 'expertLoop');
 
-?>
 
