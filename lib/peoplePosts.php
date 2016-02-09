@@ -240,11 +240,9 @@ function quote_sci( $atts ) {
     ), $atts );
     $output = '';
     $blogusers = get_users( array( 'search' => $a['user'] ) );
-    $output .= '<div >';
 foreach ( $blogusers as $user ) {   
-     $output .= '<h5 class="noborder"> <a target="_blank" href="'.esc_html($user->user_url).'">'.esc_html( $user->first_name ).' '.esc_html( $user->last_name ).'</a>, '.esc_html( $user->title ).', '.esc_html( $user->affiliation ).'</h5>';
+     $output .= '<strong> <a target="_blank" href="'.esc_html($user->user_url).'">'.esc_html( $user->first_name ).' '.esc_html( $user->last_name ).'</a>, '.esc_html( $user->title ).', '.esc_html( $user->affiliation ).':</strong>';
 }    
-    $output .= '</div>';
     //Close and return markup
     return $output;
 }
