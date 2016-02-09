@@ -231,4 +231,27 @@ function peopleLoop($atts, $content = null) {
   }
   add_shortcode('people-loop', 'peopleLoop');
 
+
+
+//  [quote_sci user="username"]
+function quote_sci( $atts ) {
+    $a = shortcode_atts( array(
+        'user' => '',
+    ), $atts );
+
+    $output = '';
+    
+    $blogusers = get_users( array( 'search' => $a['user'] ) );
+
+    $output .= '<div >';
+foreach ( $blogusers as $user ) {   
+     $output .= '<h4 class="noborder"> <a target="_blank" href="'.esc_html($user->user_url).'">'.esc_html( $user->first_name ).' '.esc_html( $user->last_name ).'</a>, Institution</h4>';
+}    
+    $output .= '</div>';
+    //Close and return markup
+    return $output;
+}
+add_shortcode( 'quote_sci', 'quote_sci' );
+
+
 ?>
