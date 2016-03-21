@@ -234,7 +234,7 @@ function peopleLoop($atts, $content = null) {
 
 
 //  [quote_sci user="username"]
-function quote_sci( $atts ) {
+/*function quote_sci( $atts ) {
     $a = shortcode_atts( array(
         'user' => '',
     ), $atts );
@@ -247,6 +247,6 @@ foreach ( $blogusers as $user ) {
     return $output;
 }
 add_shortcode( 'quote_sci', 'quote_sci' );
-
+*/
 
 ?>
