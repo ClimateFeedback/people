@@ -79,6 +79,19 @@
   add_shortcode('expert-loop', 'expertLoop');
 
 
+function format_uri( $string, $separator = '-' )
+{
+    $accents_regex = '~&([a-z]{1,2})(?:acute|cedil|circ|grave|lig|orn|ring|slash|th|tilde|uml);~i';
+    $special_cases = array( '&' => 'and', "'" => '');
+    $string = mb_strtolower( trim( $string ), 'UTF-8' );
+    $string = str_replace( array_keys($special_cases), array_values( $special_cases), $string );
+    $string = preg_replace( $accents_regex, '$1', htmlentities( $string, ENT_QUOTES, 'UTF-8' ) );
+    $string = preg_replace("/[^a-z0-9]/u", "$separator", $string);
+    $string = preg_replace("/[$separator]+/u", "$separator", $string);
+    return $string;
+}
+
+
  function expertLoop2() {
     $args = array(
       'blog_id'      => $GLOBALS['blog_id'],
@@ -143,7 +156,7 @@
             '.get_avatar( $user->get('ID'), $size = '256', $default = '<path_to_url>' ).'
           </div>
           <div class="med-body">
-            <h3 class="noborder"> <a href="/reviewers/'.$first_name.'-'.$last_name.'">'.$first_name.' '.$last_name.'</a></h3>
+            <h3 class="noborder"> <a href="/reviewers/'.format_uri($first_name).'-'.format_uri($last_name).'">'.$first_name.' '.$last_name.'</a></h3>
             <p>'.$title.', '.$affiliation.'</p>
             <p><small>Expertise:</small> '.$expertise.'</p>
             <p><small>Hypothesis:</small> <a target="_blank" href="https://hypothes.is/stream?q=user:'.$hypothesis.'" class="">'.$hypothesis.'</a></p>
