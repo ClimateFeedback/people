@@ -4,7 +4,7 @@
     $args = array(
       'blog_id'      => $GLOBALS['blog_id'],
       'role'         => 'Scientist',
-      'meta_key'     => '',
+      'meta_key'     => 'last_name',
       'meta_value'   => '',
       'meta_compare' => '',
       'meta_query'   => array(),
@@ -96,7 +96,7 @@ function format_uri( $string, $separator = '-' )
     $args = array(
       'blog_id'      => $GLOBALS['blog_id'],
       'role'         => 'Scientist',
-      'meta_key'     => '',
+      'meta_key'     => 'last_name',
       'meta_value'   => '',
       'meta_compare' => '',
       'meta_query'   => array(),
@@ -159,7 +159,6 @@ function format_uri( $string, $separator = '-' )
             <h3 class="noborder"> <a href="/reviewers/'.format_uri($first_name).'-'.format_uri($last_name).'">'.$first_name.' '.$last_name.'</a></h3>
             <p>'.$title.', '.$affiliation.'</p>
             <p><small>Expertise:</small> '.$expertise.'</p>
-            <p><small>Hypothesis:</small> <a target="_blank" href="https://hypothes.is/stream?q=user:'.$hypothesis.'" class="">'.$hypothesis.'</a></p>
           </div>
         </div>';
     }
