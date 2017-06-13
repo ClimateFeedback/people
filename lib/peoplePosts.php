@@ -23,6 +23,9 @@ function create_person() {
       ),
       'public' => true,
       'menu_position' => 15,
+      'show_in_rest' => true,
+      // then api is available at <url>/wp-json/wp/v2/people
+      'rest_base' => 'people',
       'supports' => array( 'title', 'thumbnail' ),
       'taxonomies' => array( 'category' ),
       'has_archive' => false
@@ -240,9 +243,9 @@ function peopleLoop($atts, $content = null) {
     ), $atts );
     $output = '';
     $blogusers = get_users( array( 'search' => $a['user'] ) );
-foreach ( $blogusers as $user ) {   
+foreach ( $blogusers as $user ) {
      $output .= '<strong> <a target="_blank" href="'.esc_html($user->user_url).'">'.esc_html( $user->first_name ).' '.esc_html( $user->last_name ).'</a>, '.esc_html( $user->title ).', '.esc_html( $user->affiliation ).':</strong>';
-}    
+}
     //Close and return markup
     return $output;
 }
