@@ -36,8 +36,8 @@
       if ( !empty($userdata->user_url) ) {
         $website = $userdata->user_url;
       }    
-      if ( !empty($all_meta_for_user['orchid'][0]) ) {
-        $orchid = $all_meta_for_user['orchid'][0];
+      if ( !empty($all_meta_for_user['orcid'][0]) ) {
+        $orcid = $all_meta_for_user['orcid'][0];
       }
       if ( !empty($all_meta_for_user['hypothesis'][0]) ) {
         $hypothesis = $all_meta_for_user['hypothesis'][0];
@@ -128,8 +128,8 @@ function format_uri( $string, $separator = '-' )
       if ( !empty($userdata->user_url) ) {
         $website = $userdata->user_url;
       }    
-      if ( !empty($all_meta_for_user['orchid'][0]) ) {
-        $orchid = $all_meta_for_user['orchid'][0];
+      if ( !empty($all_meta_for_user['orcid'][0]) ) {
+        $orcid = $all_meta_for_user['orcid'][0];
       }
       if ( !empty($all_meta_for_user['hypothesis'][0]) ) {
         $hypothesis = $all_meta_for_user['hypothesis'][0];
@@ -206,8 +206,8 @@ function format_uri( $string, $separator = '-' )
       if ( !empty($userdata->user_url) ) {
         $website = $userdata->user_url;
       }    
-      if ( !empty($all_meta_for_user['orchid'][0]) ) {
-        $orchid = $all_meta_for_user['orchid'][0];
+      if ( !empty($all_meta_for_user['orcid'][0]) ) {
+        $orcid = $all_meta_for_user['orcid'][0];
       }
       if ( !empty($all_meta_for_user['hypothesis'][0]) ) {
         $hypothesis = $all_meta_for_user['hypothesis'][0];
