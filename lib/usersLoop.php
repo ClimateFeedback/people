@@ -18,7 +18,7 @@
       'count_total'  => false,
       'fields'       => 'all_with_meta',
       'who'          => ''
-    );
+    ); 
 
     $blogusers = get_users( $args );
 
