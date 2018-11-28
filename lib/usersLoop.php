@@ -237,7 +237,6 @@ function format_uri( $string, $separator = '-' )
             <h3 class="noborder"> <a target="_blank" href="'.$website.'">'.$first_name.' '.$last_name.'</a></h3>
             <p>'.$title.', '.$affiliation.'</p>
             <p><small>Expertise:</small> '.$expertise.'</p>
-            <p><small>Hypothesis:</small> <a target="_blank" href="https://hypothes.is/stream?q=user:'.$hypothesis.'" class="">'.$hypothesis.'</a></p>
           </div>
         </div>';
     }
