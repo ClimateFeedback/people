@@ -224,7 +224,7 @@ function peopleLoop($atts, $content = null) {
 
     endwhile;
 
-    //Close and return markup
+    //Close and return markup 
     return $output;
   }
   add_shortcode('people-loop', 'peopleLoop');
